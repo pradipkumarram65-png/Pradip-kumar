@@ -1,0 +1,33 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="/" class="back-link">← Back to Products</a>
+    </header>
+
+    <main class="detail-container">
+        <div class="detail-image-wrap">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <div class="detail-info">
+            <h1>{{ product.name }}</h1>
+            <p class="price">${{ product.price }}</p>
+            <p class="description">{{ product.description }}</p>
+            <button class="btn-add" onclick="addToCart('{{ product.name }}')">Add to Cart</button>
+        </div>
+    </main>
+
+    <script src="{% static 'myapp/js/script.js' %}"></script>
+</body>
+</html>
+```
